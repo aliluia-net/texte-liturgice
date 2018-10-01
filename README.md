@@ -1,2 +1,2 @@
 # texte-liturgice
-Texte Liturgice
+Texte Liturgice Ortodoxe
