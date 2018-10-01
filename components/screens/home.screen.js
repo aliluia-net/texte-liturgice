@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, Text, Button, Image } from 'react-native';
+import { StyleSheet, View, Text, Button, Image, ImageBackground } from 'react-native';
 
 const styles = StyleSheet.create({
 container: {
@@ -16,6 +16,7 @@ class HomeScreen extends React.Component {
 	};
 	render() {
 		const { navigate } = this.props.navigation;
+		const resizeMode = 'contain';
 		return (
 			<View style={{
 				backgroundColor: "#000",
@@ -24,32 +25,44 @@ class HomeScreen extends React.Component {
 				flexWrap: 'wrap',
 				flexDirection: 'column'
 			}}>
-				<View style={{
-					flex: 1,
-					backgroundColor: 'red',
-					alignItems: 'center',
-					justifyContent: 'center'
-				}}>
+				<ImageBackground
+					style={{
+						flex: 1,
+						alignItems: 'center',
+						justifyContent: 'center'
+					}}
+					source={require('../../assets/mireni.jpg')}
+					onClick={() =>
+						navigate('Book', { name: 'rugaciuni' })
+					}
+				>
 					<Button
-						title="Rugăciuni particulare"
+						color="#333"
+						title="Carte de rugăciuni"
 						onPress={() =>
-							navigate('Book', { name: 'rugaciuni' })
+							navigate('Book', { name: 'slujbe' })
 						}
 					/>
-				</View>
-				<View style={{
-					flex: 1,
-					backgroundColor: 'blue',
-					alignItems: 'center',
-					justifyContent: 'center'
-				}} >
+				</ImageBackground>
+				<ImageBackground
+					style={{
+						flex: 1,
+						alignItems: 'center',
+						justifyContent: 'center'
+					}}
+					source={require('../../assets/clerici.jpg')}
+					onClick={() =>
+						navigate('Book', { name: 'rugaciuni' })
+					}
+				>
 					<Button
+						color="#333"
 						title="Slujbe bisericești"
 						onPress={() =>
 							navigate('Book', { name: 'slujbe' })
 						}
 					/>
-				</View>
+				</ImageBackground>
 			</View>
 		);
 	}
